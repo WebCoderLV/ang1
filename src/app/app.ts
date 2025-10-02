@@ -1,12 +1,29 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Post } from './post/post';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  imports: [Post, CommonModule],
 })
 export class App {
-  protected readonly title = signal('ang1');
+  imageUrl1 = 'images/PutnuBarotajas.jpg';
+  imageUrl2 = 'images/KalnuEzers.webp';
+
+  logUrl(event: string) {
+    console.log(event);
+  }
+
+  imgSource = signal(this.imageUrl1);
+
+  chengeUrl(e: boolean): void {
+    if (e) {
+      this.imgSource.set(this.imageUrl1);
+    } else {
+      this.imgSource.set(this.imageUrl2);
+    }
+  }
 }
