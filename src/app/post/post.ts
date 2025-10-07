@@ -1,4 +1,4 @@
-import { Component, input, OnChanges, output, SimpleChanges } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -7,11 +7,7 @@ import { Component, input, OnChanges, output, SimpleChanges } from '@angular/cor
   templateUrl: './post.html',
   styleUrl: './post.css',
 })
-export class Post implements OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['postImageSource'].currentValue);
-  }
-
+export class Post {
   which: boolean = true;
 
   postImageSource = input.required<string>();
